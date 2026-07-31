@@ -1,0 +1,4 @@
+Vertical velocity indicator for flight simulator by Bacab on Thingiverse: https://www.thingiverse.com/thing:6637015
+
+Summary:
+This is a replica of a vertical velocity indicator as can be found in nearly all general aviation aircrafts. It is designed to be used with one servo-motor (SG90 like)The PDF is the background to be printed and glued to the front plate.I will use it with an Arduino Uno. I plan on using it for DCS World through the use of DCS Bios.To assemble the different parts you will need 4 M3 screws (M3x10mm), 4 M3 spacers (20mm) and 4 M3 nuts to attach the front face to the motor support. The servo-motor is attached using the M2 screws that came with it. You will also need a M2.5 screw to attach the servo gear (M2.5x5 mm) to the servo. The needle should be glued to the needle gear ONCE assembled with the front plate : the gear is on the back of the front plate, the needle on the other side.
