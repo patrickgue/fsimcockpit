@@ -34,39 +34,38 @@ const int del = 30;
 
 
 void setup() {
-  vsi_servo.attach(3);  // attaches the servo on pin 7
-  myStepper.setSpeed(15);
-  Serial.begin(9600);
+    vsi_servo.attach(3);  // attaches the servo on pin 7
+    myStepper.setSpeed(15);
+    Serial.begin(9600);
 }
 
 void loop()
 {
-  if (Serial.available())
-  {
-    pos = Serial.parseInt();
-  Serial.println(pos, DEC);
-  }
-  vsi_servo.write(pos);
+    if (Serial.available())
+    {
+        pos = Serial.parseInt();
+        Serial.println(pos, DEC);
+    }
+    vsi_servo.write(pos);
 
 }
 
 void loop2() {
-  // goes from 0 degrees to 180 degrees
-  for (pos = 0; pos <= 180; pos += 1) {
-    vsi_servo.write(pos);    // tell servo to go to position in variable 'pos'
-    delay(del);               // waits 15ms for the servo to reach the position
-  }
-  //  myStepper.step(stepsPerRotation);
-  delay(500);
-  // goes from 180 degrees to 0 degrees
-  for (pos = 180; pos >= 0; pos -= 1) {
-    vsi_servo.write(pos);    // tell servo to go to position in variable 'pos'
-    delay(del);               // waits 15ms for the servo to reach the position
-  }
-  //  myStepper.step(-stepsPerRotation);
+    // goes from 0 degrees to 180 degrees
+    for (pos = 0; pos <= 180; pos += 1) {
+        vsi_servo.write(pos);    // tell servo to go to position in variable 'pos'
+        delay(del);               // waits 15ms for the servo to reach the position
+    }
+    //  myStepper.step(stepsPerRotation);
+    delay(500);
+    // goes from 180 degrees to 0 degrees
+    for (pos = 180; pos >= 0; pos -= 1) {
+        vsi_servo.write(pos);    // tell servo to go to position in variable 'pos'
+        delay(del);               // waits 15ms for the servo to reach the position
+    }
+    //  myStepper.step(-stepsPerRotation);
     delay(500);
 }
-
 
 #ifdef mock
 int main()
