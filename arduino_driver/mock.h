@@ -30,7 +30,7 @@ struct t_Serial
 
 void delay(int);
 
-
+void init_mock_serial(struct t_Serial *ser);
 void init_mock_stepper(Stepper *stepper);
 void init_mock_servo(Servo *servo);
 
