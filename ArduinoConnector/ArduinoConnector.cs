@@ -6,7 +6,7 @@ public class ArduinoConnector
 
     public ArduinoConnector(string serialPortName)
     {
-        SetSerialPort(serialPortName);
+        client = new SerialClient(serialPortName);
     }
 
     public void SetSerialPort(string serialPortName)
