@@ -57,6 +57,15 @@ bool serial_available()
     return true;
 }
 
+void serial_readBytes(char *buffer, int c)
+{
+    int i;
+    for (i = 0; i < c; i++)
+    {
+        buffer[i] = i;
+    }
+}
+
 void serial_println(int i, enum e_SerialPrintMode mode)
 {
     switch (mode)
@@ -77,6 +86,7 @@ void init_mock_serial(struct t_Serial *ser)
     ser->begin = serial_begin;
     ser->parseInt = serial_parseInt;
     ser->println = serial_println;
+    ser->readBytes = serial_readBytes;
 }
 
 

@@ -3,6 +3,8 @@
 
 #include <stdbool.h>
 
+#define FOREVER 1==1
+
 typedef struct
 {
     void (*attach)(int);
@@ -26,6 +28,7 @@ struct t_Serial
     int (*parseInt)();
     bool (*available)();
     void (*println)(int, enum e_SerialPrintMode);
+    void (*readBytes)(char *, int);
 };
 
 void delay(int);
