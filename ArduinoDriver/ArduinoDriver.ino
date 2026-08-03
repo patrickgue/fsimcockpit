@@ -79,7 +79,7 @@ typedef struct
     bool ai_pitch, ai_roll;
 } ServoCalibration;
 
-ServoState State, CalibrationState;
+ServoState State;
 ServoCalibration Calibration;
 
 void setup() {
