@@ -3,6 +3,7 @@
 Servos and Steppers:
 
 | **Instrument** | **Steppers** | **Servo** |
+|----------------|--------------|-----------|
 | VSI            | 0            | 1         |
 | HI             | 1            | 0         |
 | SPEED          | 1            | 0         |
