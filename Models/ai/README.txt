@@ -1,0 +1,4 @@
+Attitude Indicator by ZockZock on Thingiverse: https://www.thingiverse.com/thing:4593014
+
+Summary:
+This is an 3D Printed Attitude Indicator for Flight Simulator. It used Stepper Motors and is connect with Mobiflight to FS2020.Attitude Indicator in action:https://www.youtube.com/watch?v=_mzswQUTEKkBill of Material:2x DC 5V Stepper Motor 28BYJ-48 + ULN2003 Driver or Similar4x M4x20 Screw + Nuts4x M4x10 Screw + Nuts4x M3x10 Screw + Nuts1x M3x25 Screw + selflocked Nut4x Plastic Screw ⌀2x5mmPhoto paper for the gaugeIf you want a full 360° Version with bunch of improvements, than check this out:https://www.youtube.com/watch?v=w5IF1k6Fep0
