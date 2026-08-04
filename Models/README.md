@@ -12,3 +12,12 @@ Servos and Steppers:
 | AI             | 2            | 0         |
 
 Sum: 6 Steppers, 3 Servos
+
+
+## Vertical Speed Indicator (VSI)
+
+Works as provided from thingiverse. Following things have to be added or modified:
+
+* Adapter to connect gear to servo (`servo_gear_connector.scad`)
+* Standoff; This is mentioned in the instruction. Either metal standoffs with threads can be used. Otherwise there are 3d printed standoffs provided (`Standoff.scad`)
+* The hole on the front plate and the pointer have to be widened by grinding.
