@@ -230,3 +230,34 @@ float ts_slip(float value)
     }
     return base + (value * delta);
 }
+
+
+
+float ai_pitch(float value)
+{
+    float base = Calibration.ai_pitch_calibr_zero, delta;
+    if (value > 0) // up
+    {
+        delta = Calibration.ai_pitch_calibr_20up - base;
+    }
+    else // down
+    {
+        delta = base - Calibration.ai_pitch_calibr_20down;
+    }
+    return base + ((value / 20.0) * delta);
+}
+
+
+float ai_roll(float value)
+{
+    float base = Calibration.ai_rol_calibr_zero, delta;
+    if (value > 0) // right
+    {
+        delta = Calibration.ai_rol_calibr_20right - base;
+    }
+    else // left
+    {
+        delta = base - Calibration.ai_rol_calibr_20left;
+    }
+    return base + ((value / 20.0) * delta);
+}
