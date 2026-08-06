@@ -1,4 +1,4 @@
-
+#include <math.h>
 
 #ifdef mock
 #include <string.h>
@@ -71,12 +71,27 @@ typedef struct
 
 typedef struct
 {
-    bool vsi;
-    bool hi;
-    bool speed;
-    bool alt_100, alt_1000, alt_10000;
-    bool ts_turn, ts_slip;
-    bool ai_pitch, ai_roll;
+    float vsi_calibr_zero;
+    float vsi_calibr_plus5;
+    float vsi_calibr_minus5;
+    float hi_calibr_zero;
+    float speed_calibr_zero;
+    float speed_calibr_hundred;
+    float alt_calibr_hundreds_zero;
+    float alt_calibr_thousands_zero;
+    float alt_calibr_tenthousands_zero;
+    float ts_turn_calibr_zero;
+    float ts_turn_calibr_leftturn;
+    float ts_turn_calibr_rightturn;
+    float ts_slip_calibr_zero;
+    float ts_slip_calibr_left;
+    float ts_slip_calibr_right;
+    float ai_pitch_calibr_zero;
+    float ai_pitch_calibr_20up;
+    float ai_pitch_calibr_20down;
+    float ai_rol_calibr_zero;
+    float ai_rol_calibr_20right;
+    float ai_rol_calibr_20left;
 } ServoCalibration;
 
 ServoState State;
@@ -100,7 +115,7 @@ void loop()
         switch (code)
         {
         case VSI:
-
+          break;
         }
 
     }
@@ -139,3 +154,79 @@ int main()
     }
 }
 #endif
+
+
+float vsi(float value)
+{
+    float res = Calibration.vsi_calibr_zero, delta;
+
+    if (value > 0)
+    {
+        delta = Calibration.vsi_calibr_plus5 - res;
+        return res + ((value / 5.0) * delta);
+    }
+    else
+    {
+        delta = res - Calibration.vsi_calibr_minus5;
+        return res + ((value / 5.0) * delta);
+    }
+}
+
+float hi(float value)
+{
+    return Calibration.hi_calibr_zero + value;
+}
+
+float speed(float speed)
+{
+    float base = Calibration.speed_calibr_zero;
+    float delta = Calibration.speed_calibr_hundred - base;
+    return base + ((speed / 100.0) * delta);
+}
+
+float alt100(float value)
+{
+    float alt = fmod(value, 1000);
+    return Calibration.alt_calibr_hundreds_zero + (alt * 360.0 / 1000.0);
+}
+
+float alt1000(float value)
+{
+    float alt = fmod(value, 10000);
+    return Calibration.alt_calibr_hundreds_zero + (alt * 360.0 / 10000.0);
+}
+
+float alt10000(float value)
+{
+    float alt = fmod(value, 100000);
+    return Calibration.alt_calibr_hundreds_zero + (alt * 360.0 / 100000.0);
+}
+
+float ts_turn(float value)
+{
+    float base = Calibration.ts_turn_calibr_zero, delta;
+    if (value > 0) // right
+    {
+        delta = Calibration.ts_turn_calibr_rightturn - base;
+    }
+    else // left
+    {
+        delta = base - Calibration.ts_turn_calibr_leftturn;
+    }
+    return base + (value * delta);
+}
+
+
+float ts_slip(float value)
+{
+    float base = Calibration.ts_slip_calibr_zero, delta;
+    if (value > 0) // right
+    {
+        delta = Calibration.ts_slip_calibr_right - base;
+    }
+    else // left
+    {
+        delta = base - Calibration.ts_slip_calibr_left;
+    }
+    return base + (value * delta);
+}

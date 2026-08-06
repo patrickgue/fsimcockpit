@@ -2,6 +2,8 @@ PROG=test
 SRCS=test.c mock.c
 OBJS=$(SRCS:.c=.o)
 
+LDFLAGS=-lm
+
 CFLAGS=-Dmock
 
 World:$(PROG)
