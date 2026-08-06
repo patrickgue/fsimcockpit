@@ -31,12 +31,12 @@ public enum DataType
     TS_SLIP_CALIBR_RIGHT, // in degrees (servo)
 
     AI_PITCH, // attitude indicator (degrees)
-    AI_PITCH_CALIBR_20ZERO, // in degrees (stepper)
+    AI_PITCH_CALIBR_ZERO, // in degrees (stepper)
     AI_PITCH_CALIBR_20UP, // in degrees (stepper)
     AI_PITCH_CALIBR_20DOWN, // in degrees (stepper)
 
     AI_ROL, // attitude roll (degrees)
-    AI_ROL_CALIBR_20ZERO, // in degrees (stepper)
+    AI_ROL_CALIBR_ZERO, // in degrees (stepper)
     AI_ROL_CALIBR_20LEFT, // in degrees (stepper)
     AI_ROL_CALIBR_20RIGHT, // in degrees (stepper)
 }
@@ -97,7 +97,7 @@ public class DataTypeHelper
 
         case DataType.AI_PITCH:
             return 0x60;
-        case DataType.AI_PITCH_CALIBR_20ZERO:
+        case DataType.AI_PITCH_CALIBR_ZERO:
             return 0x61;
         case DataType.AI_PITCH_CALIBR_20UP:
             return 0x62;
@@ -105,7 +105,7 @@ public class DataTypeHelper
             return 0x63;
         case DataType.AI_ROL:
             return 0x64;
-        case DataType.AI_ROL_CALIBR_20ZERO:
+        case DataType.AI_ROL_CALIBR_ZERO:
             return 0x65;
         case DataType.AI_ROL_CALIBR_20LEFT:
             return 0x66;
