@@ -1,5 +1,16 @@
 #include <math.h>
 
+float vsi(float);
+float hi(float);
+float speed(float);
+float alt100(float);
+float alt1000(float);
+float alt10000(float);
+float ts_turn(float);
+float ts_slip(float);
+float ai_pitch(float);
+float ai_roll(float);
+
 #ifdef mock
 #include <string.h>
 #include "mock.h"
@@ -51,12 +62,12 @@ typedef unsigned char byte;
 
 typedef union
 {
-    byte float_parts[4];
+    byte bytes[4];
     float f;
 } float_parts;
 
 byte buffer[5];
-float_parts float_buffer;
+float_parts fltbuf;
 byte code;
 
 typedef struct
@@ -64,7 +75,7 @@ typedef struct
     float vsi;
     float hi;
     float speed;
-    float alt_100, alt_1000, alt_10000;
+    float alt, alt_100, alt_1000, alt_10000;
     float ts_turn, ts_slip;
     float ai_pitch, ai_roll;
 } ServoState;
@@ -110,16 +121,125 @@ void loop()
     {
         Serial.readBytes((char*)buffer, 5);
         code = buffer[0];
-        memcpy(float_buffer.float_parts, buffer + 1, 4);
+        memcpy(fltbuf.bytes, buffer + 1, 4);
 
         switch (code)
         {
         case VSI:
-          break;
+            State.vsi = vsi(fltbuf.f);
+            break;
+        case VSI_CALIBR_ZERO:
+            State.vsi = fltbuf.f;
+            Calibration.vsi_calibr_zero = fltbuf.f;
+            break;
+        case VSI_CALIBR_MINUS5:
+            State.vsi = fltbuf.f;
+            Calibration.vsi_calibr_minus5 = fltbuf.f;
+            break;
+
+        case HI:
+            State.hi = hi(fltbuf.f);
+            break;
+        case HI_CALIBR_ZERO:
+            State.hi = fltbuf.f;
+            Calibration.hi_calibr_zero = fltbuf.f;
+            break;
+
+        case SPEED:
+            State.speed = speed(fltbuf.f);
+            break;
+        case SPEED_CALIBR_ZERO:
+            State.speed = fltbuf.f;
+            Calibration.speed_calibr_zero = fltbuf.f;
+            break;
+        case SPEED_CALIBR_HUNDRED:
+            State.speed = fltbuf.f;
+            Calibration.speed_calibr_hundred = fltbuf.f;
+            break;
+
+        case ALT:
+            State.alt = fltbuf.f;
+            State.alt_100 = alt100(State.alt);
+            State.alt_1000 = alt1000(State.alt);
+            State.alt_10000 = alt10000(State.alt);
+            break;
+        case ALT_CALIBR_HUNDREDS_ZERO:
+            State.alt = fltbuf.f;
+            Calibration.alt_calibr_hundreds_zero = fltbuf.f;
+            break;
+        case ALT_CALIBR_THOUSANDS_ZERO:
+            State.alt = fltbuf.f;
+            Calibration.alt_calibr_thousands_zero = fltbuf.f;
+            break;
+
+        case TS_TURN:
+            State.ts_turn = ts_turn(fltbuf.f);
+            break;
+        case TS_TURN_CALIBR_ZERO:
+            State.ts_turn = fltbuf.f;
+            Calibration.ts_turn_calibr_zero = fltbuf.f;
+            break;
+        case TS_TURN_CALIBR_LEFTTURN:
+            State.ts_turn = fltbuf.f;
+            Calibration.ts_turn_calibr_leftturn = fltbuf.f;
+            break;
+        case TS_TURN_CALIBR_RIGHTTURN:
+            State.ts_turn = fltbuf.f;
+            Calibration.ts_turn_calibr_rightturn = fltbuf.f;
+            break;
+
+        case TS_SLIP:
+            State.ts_slip = ts_slip(fltbuf.f);
+            break;
+        case TS_SLIP_CALIBR_ZERO:
+            State.ts_slip = fltbuf.f;
+            Calibration.ts_slip_calibr_zero = fltbuf.f;
+            break;
+        case TS_SLIP_CALIBR_LEFT:
+            State.ts_turn = fltbuf.f;
+            Calibration.ts_slip_calibr_left = fltbuf.f;
+            break;
+        case TS_SLIP_CALIBR_RIGHT:
+            State.ts_turn = fltbuf.f;
+            Calibration.ts_slip_calibr_right = fltbuf.f;
+            break;
+
+        case AI_PITCH:
+            State.ai_pitch = ai_pitch(fltbuf.f);
+            break;
+        case AI_PITCH_CALIBR_ZERO:
+            State.ai_pitch = fltbuf.f;
+            Calibration.ai_pitch_calibr_zero = fltbuf.f;
+            break;
+        case AI_PITCH_CALIBR_20UP:
+            State.ai_pitch = fltbuf.f;
+            Calibration.ai_pitch_calibr_20up = fltbuf.f;
+        case AI_PITCH_CALIBR_20DOWN:
+            State.ai_pitch = fltbuf.f;
+            Calibration.ai_pitch_calibr_20down = fltbuf.f;
+
+        case AI_ROLL:
+            State.ai_roll = ai_roll(fltbuf.f);
+            break;
+        case AI_ROLL_CALIBR_ZERO:
+            State.ai_roll = fltbuf.f;
+            Calibration.ai_rol_calibr_zero = fltbuf.f;
+            break;
+        case AI_ROLL_CALIBR_20LEFT:
+            State.ai_roll = fltbuf.f;
+            Calibration.ai_rol_calibr_20left = fltbuf.f;
+            break;
+        case AI_ROLL_CALIBR_20RIGHT:
+            State.ai_roll = fltbuf.f;
+            Calibration.ai_rol_calibr_20right = fltbuf.f;
+            break;
         }
 
     }
-    VSI_Servo.write(pos);
+    VSI_Servo.write(State.vsi);
+    TS_TURN_Servo.write(State.ts_turn);
+    TS_SLIP_Servo.write(State.ts_slip);
+    //HI_Step.
 }
 
 void loop2() {
@@ -230,8 +350,6 @@ float ts_slip(float value)
     }
     return base + (value * delta);
 }
-
-
 
 float ai_pitch(float value)
 {
