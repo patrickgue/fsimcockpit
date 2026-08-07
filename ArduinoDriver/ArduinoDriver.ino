@@ -32,15 +32,14 @@ const int stepsPerRotation = 2048;  // 28BYJ-48 has 2048 steps per rotation in f
 
 #ifdef mock
 
-Stepper myStepper;
-
-Stepper HI_Step,
-    SPEED_Step,
-    ALT100_Step,
-    ALT1000_Step,
-    ALT10000_Step,
-    AI_PITCH_Step,
-    AI_ROLL_Step;
+Stepper
+HI_Step("HI"),
+SPEED_Step("SPEED"),
+ALT100_Step("ALT100"),
+ALT1000_Step("ALT1000"),
+ALT10000_Step("ALT10000"),
+AI_PITCH_Step("AI_PITCH"),
+AI_ROLL_Step("AI_ROLL");
 
 #else
 
@@ -48,7 +47,15 @@ Stepper myStepper(stepsPerRotation, OUTPUT1, OUTPUT3, OUTPUT2, OUTPUT4);
 
 #endif
 /* Servo */
-Servo VSI_Servo, TS_TURN_Servo, TS_SLIP_Servo;
+#ifdef mock
+Servo
+VSI_Servo("VSI"),
+TS_TURN_Servo("TS_TURN"),
+TS_SLIP_Servo("TS_SLIP");
+#else
+Servo
+VSI_Servo, TS_TURN_Servo, TS_SLIP_Servo;
+#endif
 // twelve servo objects can be created on most boards
 
 
@@ -110,7 +117,7 @@ ServoCalibration Calibration;
 
 void setup() {
     VSI_Servo.attach(3);  // attaches the servo on pin 7
-    myStepper.setSpeed(15);
+    //myStepper.setSpeed(15);
     Serial.begin(9600);
 }
 
@@ -265,8 +272,6 @@ void loop2() {
 int main()
 {
     init_mock_serial(&Serial);
-    init_mock_stepper(&myStepper);
-    init_mock_servo(&VSI_Servo);
     setup();
     while (FOREVER)
     {

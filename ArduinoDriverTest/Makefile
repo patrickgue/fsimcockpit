@@ -1,18 +1,20 @@
 PROG=test
-SRCS=test.c mock.c
-OBJS=$(SRCS:.c=.o)
+SRCS=test.cpp mock.cpp
+OBJS=$(SRCS:.cpp=.o)
 
+CPP=g++
+
+CPPFLAGS=-Dmock
 LDFLAGS=-lm
 
-CFLAGS=-Dmock
 
 World:$(PROG)
 
 $(PROG): $(OBJS)
-	$(CC) -o $@ $^ $(LDFLAGS)
+	$(CPP) -o $@ $^ $(LDFLAGS)
 
-%.o: %.c
-	$(CC) -c -o $@ $^ $(CFLAGS)
+%.o: %.cpp
+	$(CPP) -c -o $@ $^ $(CPPFLAGS)
 
 clean:
 	rm -f *.o $(PROG)

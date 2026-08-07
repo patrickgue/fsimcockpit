@@ -5,16 +5,26 @@
 
 #define FOREVER 1==1
 
-typedef struct
+class Servo
 {
-    void (*attach)(int);
-    void (*write)(int);
-} Servo;
+public:
+    Servo(const char *name);
+    void write(int degr);
+    void attach(int pin);
+private:
+    const char *name;
+};
 
-typedef struct
+
+class Stepper
 {
-    void (*setSpeed)(int);
-} Stepper;
+public:
+    Stepper(const char *name);
+    void setSpeed(int);
+private:
+    const char *name;
+};
+
 
 enum e_SerialPrintMode
 {
@@ -34,7 +44,5 @@ struct t_Serial
 void delay(int);
 
 void init_mock_serial(struct t_Serial *ser);
-void init_mock_stepper(Stepper *stepper);
-void init_mock_servo(Servo *servo);
 
 #endif

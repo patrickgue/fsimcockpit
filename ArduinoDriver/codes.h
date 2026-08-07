@@ -32,5 +32,4 @@
 #define AI_ROLL_CALIBR_20RIGHT           0x67
 #define ERROR                            0xFF
 
-
 #endif
