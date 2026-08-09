@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <string.h>
 
 #include "mock.h"
 
@@ -7,14 +8,12 @@
  * MOCK STEPPER *
  ****************/
 
-void stepper_setSpeed(int speed)
-{
-    printf("STEPPER setSpeed %d\n", speed);
-}
+Stepper::Stepper(const char *name) : name(name)
+{}
 
-void init_mock_stepper(Stepper *stepper)
+void Stepper::setSpeed(int speed)
 {
-    stepper->setSpeed = stepper_setSpeed;
+    printf("STEPPER SET SPEED %s: %i\n", name, speed);
 }
 
 
@@ -22,21 +21,20 @@ void init_mock_stepper(Stepper *stepper)
  * MOCK SERVO *
  **************/
 
-void servo_attach(int pin)
+Servo::Servo(const char *name) : name(name)
+{}
+
+void Servo::write(int degr)
 {
-    printf("SERVO attach on Pin %d\n", pin);
+    printf("SERVO WRITE %s: %i\n", name, degr);
 }
 
-void servo_write(int degr)
+void Servo::attach(int pin)
 {
-    printf("SERVO write %d degr\n", degr);
+    printf("SERVO ATTACH %s: PIN %i\n", name, pin);
 }
 
-void init_mock_servo(Servo *servo)
-{
-    servo->attach = servo_attach;
-    servo->write = servo_write;
-}
+
 
 /***************
  * MOCK SERIAL *

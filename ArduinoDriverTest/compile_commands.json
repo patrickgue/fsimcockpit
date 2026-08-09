@@ -1,15 +1,1 @@
-[
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-c",
-      "-Dmock",
-      "-o",
-      "test.o",
-      "test.c"
-    ],
-    "directory": "/home/patrick/devel/fsimcockpit/arduino_driver",
-    "file": "/home/patrick/devel/fsimcockpit/arduino_driver/test.c",
-    "output": "/home/patrick/devel/fsimcockpit/arduino_driver/test.o"
-  }
-]
+[]

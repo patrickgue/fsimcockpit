@@ -23,14 +23,13 @@
 #define TS_SLIP_CALIBR_LEFT              0x56
 #define TS_SLIP_CALIBR_RIGHT             0x57
 #define AI_PITCH                         0x60
-#define AI_PITCH_CALIBR_20ZERO           0x61
+#define AI_PITCH_CALIBR_ZERO             0x61
 #define AI_PITCH_CALIBR_20UP             0x62
 #define AI_PITCH_CALIBR_20DOWN           0x63
-#define AI_ROL                           0x64
-#define AI_ROL_CALIBR_20ZERO             0x65
-#define AI_ROL_CALIBR_20LEFT             0x66
-#define AI_ROL_CALIBR_20RIGHT            0x67
+#define AI_ROLL                          0x64
+#define AI_ROLL_CALIBR_ZERO              0x65
+#define AI_ROLL_CALIBR_20LEFT            0x66
+#define AI_ROLL_CALIBR_20RIGHT           0x67
 #define ERROR                            0xFF
-
 
 #endif
