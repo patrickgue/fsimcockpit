@@ -29,5 +29,5 @@ difference() {
     }
 
     // Shaft hole
-    cylinder(d=3, h=5, center=true);
+    cylinder(d=4, h=5, center=true);
 }

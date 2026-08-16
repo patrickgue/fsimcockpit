@@ -19,7 +19,7 @@ difference() {
         // Hub
         difference() {
             cylinder(d = 8, h = height, center = true);
-            cylinder(d = 3, h = height, center = true);
+            cylinder(d = 2, h = height, center = true);
         }
 
         // Small counterweight on the opposite side
@@ -28,5 +28,5 @@ difference() {
     }
 
     // Hub hole
-    cylinder(d = 3, h = 5, center = true);
+    //cylinder(d = 1, h = 5, center = true);
 }
