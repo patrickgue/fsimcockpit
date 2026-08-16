@@ -30,6 +30,9 @@ public class SerialClient
         serialPort.Handshake = HANDSHAKE;
         serialPort.ReadTimeout = TIMEOUT;
         serialPort.WriteTimeout = TIMEOUT;
+        serialPort.Open();
+        serialPort.Write("90\n");
+
     }
 
     public void SendBytes(byte[] bytes, int count)
