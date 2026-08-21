@@ -8,7 +8,7 @@ Servos and Steppers:
 | HI             | 1            | 0         |
 | SPEED          | 0            | 1         |
 | ALT            | 3            | 0         |
-| T/S            | 0            | 2         |
+| TC             | 0            | 2         |
 | AI             | 2            | 0         |
 
 Sum: 5 Steppers, 4 Servos
