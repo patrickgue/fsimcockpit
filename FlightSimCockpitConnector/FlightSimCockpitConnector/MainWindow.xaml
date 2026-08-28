@@ -22,6 +22,14 @@
                 <TextBlock Text="Current State:"/>
                 <TextBlock Name="SpeedText"/>
 
+                <TextBlock Text="Calibration" FontWeight="Bold" FontStyle="Italic" />
+                <TextBox x:Name="calibASZero"
+                     Header="At 0kt:" PlaceholderText="0"
+                     Width="100" HorizontalAlignment="Left"/>
+                <TextBox x:Name="calibAS100"
+                     Header="At 100kt:" PlaceholderText="90"
+                     Width="100" HorizontalAlignment="Left"/>
+
             </StackPanel>
 
             <StackPanel Grid.Row="0" Grid.Column="1" Margin="5" >
@@ -30,12 +38,46 @@
                 <TextBlock Name="PitchText"/>
                 <TextBlock Text="Current Bank State:" />
                 <TextBlock Name="BankText"/>
+
+                <TextBlock Text="Calibration Pitch" FontWeight="Bold" FontStyle="Italic" />
+                <TextBox x:Name="calibPitchNeg20"
+                         Header="At -20°:" PlaceholderText="0"
+                         Width="100" HorizontalAlignment="Left"/>
+                <TextBox x:Name="calibPitchZero"
+                         Header="At 0°:" PlaceholderText="90"
+                         Width="100" HorizontalAlignment="Left"/>
+                <TextBox x:Name="calibPitchPos20"
+                         Header="At 20°:" PlaceholderText="0"
+                         Width="100" HorizontalAlignment="Left"/>
+
+                <TextBlock Text="Calibration Roll" FontWeight="Bold" FontStyle="Italic" />
+                <TextBox x:Name="calibRollNeg20"
+                         Header="At -20°:" PlaceholderText="0"
+                         Width="100" HorizontalAlignment="Left"/>
+                <TextBox x:Name="calibRollZero"
+                         Header="At 0°:" PlaceholderText="90"
+                         Width="100" HorizontalAlignment="Left"/>
+                <TextBox x:Name="calibRollPos20"
+                         Header="At 20°:" PlaceholderText="0"
+                         Width="100" HorizontalAlignment="Left"/>
             </StackPanel>
 
             <StackPanel Grid.Row="0" Grid.Column="2" Margin="5">
                 <TextBlock Text="Altitude Indicator" FontWeight="Bold" FontStyle="Italic" />
                 <TextBlock Text="Current State:"/>
                 <TextBlock Name="AltitudeText"/>
+
+                <TextBlock Text="Calibration 100 ft needle"/>
+                <Button>Minus 5 steps</Button>
+                <Button>Plus 5 steps</Button>
+
+                <TextBlock Text="Calibration 1000 ft needle"/>
+                <Button>Minus 5 steps</Button>
+                <Button>Plus 5 steps</Button>
+
+                <TextBlock Text="Calibration 10000 ft needle"/>
+                <Button>Minus 5 steps</Button>
+                <Button>Plus 5 steps</Button>
             </StackPanel>
 
             <StackPanel Grid.Row="1" Grid.Column="0" Margin="5">
@@ -45,21 +87,66 @@
 
                 <TextBlock Text="Current State Slip:" />
                 <TextBlock Name="SlipText"/>
+
+                <TextBlock Text="Calibration Turn" FontWeight="Bold" FontStyle="Italic" />
+                <TextBox x:Name="calibTurnLeft"
+                         Header="At 1 rotation left:" PlaceholderText="0"
+                         Width="100" HorizontalAlignment="Left"/>
+                <TextBox x:Name="calibTurnCenter"
+                         Header="At center (no rot.):" PlaceholderText="90"
+                         Width="100" HorizontalAlignment="Left"/>
+                <TextBox x:Name="CalibTurnRight"
+                         Header="At 1 rotation right:" PlaceholderText="0"
+                         Width="100" HorizontalAlignment="Left"/>
+
+                <TextBlock Text="Calibration Slip" FontWeight="Bold" FontStyle="Italic" />
+                <TextBox x:Name="calibSlipLeft"
+                         Header="At Slip Left:" PlaceholderText="0"
+                         Width="100" HorizontalAlignment="Left"/>
+                <TextBox x:Name="calibSlipCenter"
+                         Header="At Center:" PlaceholderText="90"
+                         Width="100" HorizontalAlignment="Left"/>
+                <TextBox x:Name="calibSlipRight"
+                         Header="At Slip Right:" PlaceholderText="0"
+                         Width="100" HorizontalAlignment="Left"/>
             </StackPanel>
 
             <StackPanel Grid.Row="1" Grid.Column="1" Margin="5">
                 <TextBlock Text="Heading Indicator" FontWeight="Bold" FontStyle="Italic" />
                 <TextBlock Text="Current State:" />
                 <TextBlock Name="HeadingText"/>
+
+                <TextBlock Text="Calibration"/>
+                <Button>Minus 5 steps</Button>
+                <Button>Plus 5 steps</Button>
+
             </StackPanel>
 
             <StackPanel Grid.Row="1" Grid.Column="2" Margin="5">
                 <TextBlock Text="Vertical Speed Indicator" FontWeight="Bold" FontStyle="Italic" />
                 <TextBlock Text="Current State:" />
                 <TextBlock Name="VerticalSpeedText"/>
+
+                <TextBlock Text="Calibration" FontWeight="Bold" FontStyle="Italic" />
+                <TextBox x:Name="calibVSMinus5"
+                         Header="At -5 ft/s:" PlaceholderText="0"
+                         Width="100" HorizontalAlignment="Left"/>
+                <TextBox x:Name="calibVSZero"
+                         Header="At 0 ft/s:" PlaceholderText="90"
+                         Width="100" HorizontalAlignment="Left"/>
+                <TextBox x:Name="calibVSPlus5"
+                         Header="At +5 ft/s:" PlaceholderText="0"
+                         Width="100" HorizontalAlignment="Left"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal" Height="30">
+          <DropDownButton>
+            <DropDownButton.Flyout>
+              <MenuFlyout Placement="Bottom">
+                <MenuFlyoutItem Text="COM1" />
+              </MenuFlyout>
+            </DropDownButton.Flyout>
+          </DropDownButton>
             <Button Name="QuitApp" Click="AppQuit">Quit</Button>
         </StackPanel>
     </StackPanel>
