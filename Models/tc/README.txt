@@ -1,0 +1,4 @@
+Turn coordinator for flight simulator by Bacab on Thingiverse: https://www.thingiverse.com/thing:6554762
+
+Summary:
+This is a replica of a turn coordinator as can be found in nearly all general aviation aircrafts. It is designed to be used with two servo-motors (SG90 like)The PDF is the background to be printed and glued to the front plane.I will use it with an Arduino Uno. I plan on using it for DCS World through the use of DCS Bios.To assemble the different parts you will need 4 M3 screws (M3x10mm), 4 spacers (M3x30 mm) and four M3 nuts to attach the front face to the motor support. The servo-motors are attached using the M2 screws that came with them. You will also need a M2.5 screw to attach the ball (M2.5x5 mm) to the upper servo and one M2.5x20mm screw and two nuts to attach the aircraft to the second, lower, servo. The two nuts are used one against the other to block in the correct position the aircraft silhouette.

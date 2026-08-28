@@ -19,5 +19,6 @@ If not mentioned otherwise, this project is licensed under the MIT license. A co
 
 Following external components are used: (License file provided in the subfolder)
 
-* Attitude Indicator (hein4bloed, CC-A-NC)
-* Vertical Speed indicator (Bacab, CC-A-NC-SA)
+* Attitude Indicator (hein4bloed, CC-BY-NC)
+* Vertical Speed indicator (Bacab, CC-BY-NC-SA)
+* Turn coordinator (Bacab, CC-BY-NC-SA)
