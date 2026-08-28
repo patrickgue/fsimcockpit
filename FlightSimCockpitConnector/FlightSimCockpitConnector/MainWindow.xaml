@@ -26,6 +26,10 @@
 
             <StackPanel Grid.Row="0" Grid.Column="1" Margin="5" >
                 <TextBlock Text="Atitude Indicator" FontWeight="Bold" FontStyle="Italic"  />
+                <TextBlock Text="Current Pitch State:" />
+                <TextBlock Name="PitchText"/>
+                <TextBlock Text="Current Bank State:" />
+                <TextBlock Name="BankText"/>
             </StackPanel>
 
             <StackPanel Grid.Row="0" Grid.Column="2" Margin="5">
@@ -36,14 +40,23 @@
 
             <StackPanel Grid.Row="1" Grid.Column="0" Margin="5">
                 <TextBlock Text="Turn/Slip Indicator" FontWeight="Bold" FontStyle="Italic" />
+                <TextBlock Text="Current State Turn:" />
+                <TextBlock Name="TurnText"/>
+
+                <TextBlock Text="Current State Slip:" />
+                <TextBlock Name="SlipText"/>
             </StackPanel>
 
             <StackPanel Grid.Row="1" Grid.Column="1" Margin="5">
                 <TextBlock Text="Heading Indicator" FontWeight="Bold" FontStyle="Italic" />
+                <TextBlock Text="Current State:" />
+                <TextBlock Name="HeadingText"/>
             </StackPanel>
 
             <StackPanel Grid.Row="1" Grid.Column="2" Margin="5">
                 <TextBlock Text="Vertical Speed Indicator" FontWeight="Bold" FontStyle="Italic" />
+                <TextBlock Text="Current State:" />
+                <TextBlock Name="VerticalSpeedText"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal" Height="30">

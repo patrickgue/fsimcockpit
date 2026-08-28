@@ -27,6 +27,12 @@ namespace MSFSSimConnectWpf
         {
             public double Altitude;
             public double Speed;
+            public double Heading;
+            public double Pitch; 
+            public double Bank; 
+            public double TurnRate;
+            public double SlipBall;
+            public double VerticalSpeed;
         }
 
 
@@ -86,6 +92,48 @@ namespace MSFSSimConnectWpf
                     0,
                     SimConnect.SIMCONNECT_UNUSED);
 
+                simconnect.AddToDataDefinition(
+                    DEFINITIONS.AircraftData,
+                    "HEADING INDICATOR",
+                    "degrees",
+                    SIMCONNECT_DATATYPE.FLOAT64,
+                    0,
+                    SimConnect.SIMCONNECT_UNUSED);
+
+                simconnect.AddToDataDefinition(
+                    DEFINITIONS.AircraftData,
+                    "ATTITUDE INDICATOR PITCH DEGREES",
+                    "degrees",
+                    SIMCONNECT_DATATYPE.FLOAT64, 0, SimConnect.SIMCONNECT_UNUSED);
+
+                // 5. Roll / Bank (Degrees: Right bank is positive, Left is negative)
+                simconnect.AddToDataDefinition(
+                    DEFINITIONS.AircraftData,
+                    "ATTITUDE INDICATOR BANK DEGREES",
+                    "degrees",
+                    SIMCONNECT_DATATYPE.FLOAT64, 0, SimConnect.SIMCONNECT_UNUSED);
+
+                // 6. Turn Rate (Turn Coordinator aircraft indicator needle)
+                simconnect.AddToDataDefinition(
+                    DEFINITIONS.AircraftData,
+                    "TURN INDICATOR RATE",
+                    "radians per second",
+                    SIMCONNECT_DATATYPE.FLOAT64, 0, SimConnect.SIMCONNECT_UNUSED);
+
+                // 7. Slip/Skid Ball Position (-1.0 full left, 0 center, +1.0 full right)
+                simconnect.AddToDataDefinition(
+                    DEFINITIONS.AircraftData,
+                    "TURN COORDINATOR BALL",
+                    "position",
+                    SIMCONNECT_DATATYPE.FLOAT64, 0, SimConnect.SIMCONNECT_UNUSED);
+
+                // 8. Vertical Speed (Feet per minute)
+                simconnect.AddToDataDefinition(
+                    DEFINITIONS.AircraftData,
+                    "VERTICAL SPEED",
+                    "feet per minute",
+                    SIMCONNECT_DATATYPE.FLOAT64, 0, SimConnect.SIMCONNECT_UNUSED);
+
 
                 simconnect.RegisterDataDefineStruct<AircraftData>(
                     DEFINITIONS.AircraftData);
@@ -105,7 +153,7 @@ namespace MSFSSimConnectWpf
                 REQUESTS.AircraftData,
                 DEFINITIONS.AircraftData,
                 SimConnect.SIMCONNECT_OBJECT_ID_USER,
-                SIMCONNECT_PERIOD.SECOND,
+                SIMCONNECT_PERIOD.SIM_FRAME,
                 SIMCONNECT_DATA_REQUEST_FLAG.DEFAULT,
                 0,
                 0,
@@ -129,6 +177,15 @@ namespace MSFSSimConnectWpf
 
                     SpeedText.Text =
                         $"{aircraft.Speed:0} kt";
+
+                    HeadingText.Text = $"{aircraft.Heading} degr";
+
+                    PitchText.Text = $"{aircraft.Pitch} degr";
+                    BankText.Text = $"{aircraft.Bank} degr";
+                    VerticalSpeedText.Text = $"{aircraft.VerticalSpeed} degr";
+
+                    TurnText.Text = $"{aircraft.TurnRate}";
+                    SlipText.Text = $"{aircraft.SlipBall}";
                 });
             }
         }
