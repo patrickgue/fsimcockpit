@@ -17,7 +17,7 @@ difference() {
 
 
     translate([10,0,0])
-        cylinder(d=3,h=height+1,center=true);
+        cylinder(d=1,h=height+1,center=true);
 
 
     translate([-22,1.5,0])

@@ -1,25 +1,30 @@
-$fn=100;
+$fn=150;
 
 size = 84;
 height = 3;
 inset = 10;
+screw_offset=32;
 
 difference() {
 union() {
 translate([-(size/2), -(size/2), 0])
 chamfered_box([size, size, height], inset);
-difference() {
-translate([0, 0, 3])
-    cylinder(d=78, h=7);
-    
-translate([0, 0, 3])
-    cylinder(d=70, h=7);
-
-
-}
+    difference() {
+        translate([0, 0, 3])
+            cylinder(d=78, h=7);
+            
+        translate([0, 0, 3])
+            cylinder(d=70, h=8);
+    }
 }
 translate([0, 0, 0])
-    cylinder(d=4, h=10);
+    cylinder(d=4.1, h=10);
+for (i = [-screw_offset:2*screw_offset:screw_offset]) {
+    for (j = [-screw_offset:2*screw_offset:screw_offset]) {
+        translate([i, j, 0])
+            cylinder(d=3,h=4);
+    }
+}
 }
 
 
