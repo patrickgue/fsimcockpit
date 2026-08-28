@@ -1,14 +1,17 @@
-﻿using System;
+﻿using fsimcockpit.serial_connector;
+using Microsoft.FlightSimulator.SimConnect;
+using System;
 using System.Runtime.InteropServices;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Interop;
-using Microsoft.FlightSimulator.SimConnect;
 
 namespace MSFSSimConnectWpf
 {
     public partial class MainWindow : Window
     {
         private SimConnect simconnect;
+        private ArduinoConnector Connector;
 
         private const int WM_USER_SIMCONNECT = 0x0402;
 
@@ -228,6 +231,39 @@ namespace MSFSSimConnectWpf
         private void AppQuit(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void RefreshSerialPortList(object sender, RoutedEventArgs e)
+        {
+            SerialPortSelector.Items.Clear();
+            foreach (var serialPort in SerialClient.SerialPortList())
+            { 
+                SerialPortSelector.Items.Add(serialPort);
+            }
+        }
+
+        private void SerialPortSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItem = SerialPortSelector.SelectedItem;
+            string serialPort = null;
+            if (selectedItem is ComboBoxItem)
+            {
+                serialPort = ((ComboBoxItem)selectedItem).Name;
+            }
+            else
+            {
+                serialPort = (string)selectedItem;
+            }
+
+            if (serialPort != null)
+            {
+                Connector = new ArduinoConnector(serialPort);
+            }
+        }
+
+        private void SerialPortSelected(object sender, RoutedEventArgs e)
+        {
+            SerialPortSelector_SelectionChanged(sender, null);
         }
     }
 }

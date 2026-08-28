@@ -6,9 +6,17 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <Platforms>x64</Platforms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.IO.Ports" Version="10.0.11" />
+  </ItemGroup>
+
 	<ItemGroup>
+		<Reference Include="ArduinoConnector">
+		  <HintPath>..\..\ArduinoConnector\bin\x64\Debug\net10.0-windows\ArduinoConnector.dll</HintPath>
+		</Reference>
 		<Reference Include="Microsoft.FlightSimulator.SimConnect">
 			<HintPath>C:\MSFS SDK\SimConnect SDK\lib\managed\Microsoft.FlightSimulator.SimConnect.dll</HintPath>
 		</Reference>
