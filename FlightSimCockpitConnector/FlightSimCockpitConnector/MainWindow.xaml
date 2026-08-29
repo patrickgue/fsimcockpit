@@ -22,20 +22,26 @@
                 <TextBlock Text="Current State:"/>
                 <TextBlock Name="SpeedText"/>
 
+                <!-- is disabled when calibration data is sent. Re-enable to send data again -->
+                <TextBlock Text="Send Sim State" />
                 <TextBlock Text="Calibration" FontWeight="Bold" FontStyle="Italic" />
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" >
                     <TextBlock Text="At 0kt" />
                     <Separator Width="4" Visibility="Hidden"/>
                     <TextBox x:Name="calibASZero"
-                        Width="100" HorizontalAlignment="Left"/>
+                             Width="100" HorizontalAlignment="Left"/>
+                    <Separator Width="4" Visibility="Hidden"/>
+                    <Button>Cal</Button>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" >
                     <TextBlock Text="At 100kt" />
                     <Separator Width="4" Visibility="Hidden"/>
                     <TextBox x:Name="calibAS100"
-                     Width="100" HorizontalAlignment="Left"/>
+                             Width="100" HorizontalAlignment="Left"/>
+                    <Separator Width="4" Visibility="Hidden"/>
+                    <Button>Cal</Button>
                 </StackPanel>
-
+                
             </StackPanel>
 
             <StackPanel Grid.Row="0" Grid.Column="1" Margin="5" >
@@ -51,44 +57,56 @@
                     <TextBlock Text="-20°"/>
                     <Separator Width="4" Visibility="Hidden"/>
                     <TextBox x:Name="calibPitchNeg20"
-                         Width="100" HorizontalAlignment="Left"/>
+                             Width="100" HorizontalAlignment="Left"/>
+                    <Separator Width="4" Visibility="Hidden"/>
+                    <Button>Cal</Button>
                 </StackPanel>
 
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" >
                     <TextBlock Text="0°"/>
                     <Separator Width="4" Visibility="Hidden"/>
                     <TextBox x:Name="calibPitchZero"
-                         Width="100" HorizontalAlignment="Left"/>
+                             Width="100" HorizontalAlignment="Left"/>
+                    <Separator Width="4" Visibility="Hidden"/>
+                    <Button>Cal</Button>
                 </StackPanel>
 
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" >
                     <TextBlock Text="+20°"/>
                     <Separator Width="4" Visibility="Hidden"/>
                     <TextBox x:Name="calibPitchPos20"
-                         Width="100" HorizontalAlignment="Left"/>
+                             Width="100" HorizontalAlignment="Left"/>
+                    <Separator Width="4" Visibility="Hidden"/>
+                    <Button>Cal</Button>
                 </StackPanel>
 
-                    <TextBlock Text="Calibration Roll" FontWeight="Bold" FontStyle="Italic" />
+                <TextBlock Text="Calibration Roll" FontWeight="Bold" FontStyle="Italic" />
                 
 
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" >
                     <TextBlock Text="-20°"/>
                     <Separator Width="4" Visibility="Hidden"/>
                     <TextBox x:Name="calibRollNeg20"     
-                         Width="100" HorizontalAlignment="Left"/>
+                             Width="100" HorizontalAlignment="Left"/>
+                    <Separator Width="4" Visibility="Hidden"/>
+                    <Button>Cal</Button>
                 </StackPanel>
 
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" >
                     <TextBlock Text="0°"/>
                     <Separator Width="4" Visibility="Hidden"/>
                     <TextBox x:Name="calibRollZero"     
-                         Width="100" HorizontalAlignment="Left"/>
+                             Width="100" HorizontalAlignment="Left"/>
+                    <Separator Width="4" Visibility="Hidden"/>
+                    <Button>Cal</Button>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" >
                     <TextBlock Text="+20°"/>
                     <Separator Width="4" Visibility="Hidden"/>
                     <TextBox x:Name="calibRollPos20"
-                         Width="100" HorizontalAlignment="Left"/>
+                             Width="100" HorizontalAlignment="Left"/>
+                    <Separator Width="4" Visibility="Hidden"/>
+                    <Button>Cal</Button>
                 </StackPanel>
             </StackPanel>
 
@@ -132,21 +150,26 @@
                     <TextBlock Text="1 Rot. Left"/>
                     <Separator Width="4" Visibility="Hidden"/>
                     <TextBox x:Name="calibTurnLeft"
-                         Width="100" HorizontalAlignment="Left"/>
+                             Width="100" HorizontalAlignment="Left"/>
+                    <Separator Width="4" Visibility="Hidden"/>
+                    <Button>Cal</Button>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" >
                     <TextBlock Text="Center"/>
                     <Separator Width="4" Visibility="Hidden"/>
                     <TextBox x:Name="calibTurnCenter"
-                         Width="100" HorizontalAlignment="Left"/>
+                             Width="100" HorizontalAlignment="Left"/>
+                    <Separator Width="4" Visibility="Hidden"/>
+                    <Button>Cal</Button>
                 </StackPanel>
 
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" >
                     <TextBlock Text="1 Rot. Right"/>
                     <Separator Width="4" Visibility="Hidden"/>
-                    <TextBox x:Name="CalibTurnRight"
-                        
-                         Width="100" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="CalibTurnRight"    
+                             Width="100" HorizontalAlignment="Left"/>
+                    <Separator Width="4" Visibility="Hidden"/>
+                    <Button>Cal</Button>
                 </StackPanel>
 
 
@@ -155,21 +178,27 @@
                     <TextBlock Text="Slip Left:"/>
                     <Separator Width="4" Visibility="Hidden"/>
                     <TextBox x:Name="calibSlipLeft"
-                         Width="100" HorizontalAlignment="Left"/>
+                             Width="100" HorizontalAlignment="Left"/>
+                    <Separator Width="4" Visibility="Hidden"/>
+                    <Button>Cal</Button>
                 </StackPanel>
                 <!--Header="At " PlaceholderText="0"-->
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" >
                     <TextBlock Text="Slip Center:"/>
                     <Separator Width="4" Visibility="Hidden"/>
                     <TextBox x:Name="calibSlipCenter"
-                         Width="100" HorizontalAlignment="Left"/>
+                             Width="100" HorizontalAlignment="Left"/>
+                    <Separator Width="4" Visibility="Hidden"/>
+                    <Button>Cal</Button>
                 </StackPanel>
 
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" >
                     <TextBlock Text="Slip Right:"/>
                     <Separator Width="4" Visibility="Hidden"/>
                     <TextBox x:Name="calibSlipRight"
-                         Width="100" HorizontalAlignment="Left"/>
+                             Width="100" HorizontalAlignment="Left"/>
+                    <Separator Width="4" Visibility="Hidden"/>
+                    <Button>Cal</Button>
                 </StackPanel>
             </StackPanel>
 
@@ -197,35 +226,38 @@
                     <TextBlock Text="At -5 ft/s:" />
                     <Separator Width="4" Visibility="Hidden"/>
                     <TextBox x:Name="calibVSMinus5"
-                         Width="100" HorizontalAlignment="Left"/>
+                             Width="100" HorizontalAlignment="Left"/>
+                    <Separator Width="4" Visibility="Hidden"/>
+                    <Button>Cal</Button>
                 </StackPanel>
 
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" >
                     <TextBlock Text="At 0 ft/s:" />
                     <Separator Width="4" Visibility="Hidden"/>
                     <TextBox x:Name="calibVSZero"
-                         Width="100" HorizontalAlignment="Left"/>
+                             Width="100" HorizontalAlignment="Left"/>
+                    <Separator Width="4" Visibility="Hidden"/>
+                    <Button>Cal</Button>
                 </StackPanel>
 
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" >
                     <TextBlock Text="At +5 ft/s:"></TextBlock>
                     <Separator Width="4" Visibility="Hidden"/>
                     <TextBox x:Name="calibVSPlus5"
-                         Width="100" HorizontalAlignment="Left"/>
+                             Width="100" HorizontalAlignment="Left"/>
+                    <Separator Width="4" Visibility="Hidden"/>
+                    <Button>Cal</Button>
                 </StackPanel>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal" Height="30" HorizontalAlignment="Right">
             <Button Click="RefreshSerialPortList">Refresh</Button>
             <ComboBox Name="SerialPortSelector" SelectionChanged="SerialPortSelector_SelectionChanged">
-                <ComboBoxItem>COM1</ComboBoxItem>
+              <ComboBoxItem>Select...</ComboBoxItem>
             </ComboBox>
             <Button Click="SerialPortSelected">Select Port</Button>
             <Separator Width="40" Visibility="Hidden"/>
             <Button Name="QuitApp" Click="AppQuit">Quit</Button>
         </StackPanel>
     </StackPanel>
-
-
-
 </Window>
